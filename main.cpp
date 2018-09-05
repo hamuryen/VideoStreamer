@@ -1,11 +1,18 @@
+/*
+* File:   main.cpp
+* Author: Burak Hamuryen
+*
+* Created on 05.09.2018
+*/
+
 #include <iostream>
 
 #include "liveMedia.hh"
 #include "GroupsockHelper.hh"
 #include "BasicUsageEnvironment.hh"
 
-//#define VIDEO
-#define RTSP
+#define VIDEO
+//#define RTSP
 
 static void announceStream(RTSPServer* rtspServer, ServerMediaSession* sms, char const* streamName, char const* inputFileName)
 {
@@ -46,7 +53,7 @@ int main(int argc, char** argv)
 	}
 
 #ifdef VIDEO
-	source = "C:\\Users\\Burak Hamuryen\\Desktop\\video_sample\\test5.mkv";
+	source = argv[1];
 	newDemuxWatchVariable = 0;
 
 	ServerMediaSession* sms = ServerMediaSession::createNew(*env, streamName.c_str(), description.c_str(), description.c_str());
